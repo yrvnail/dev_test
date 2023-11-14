@@ -13,7 +13,7 @@ broker.createService({
         console.log(`${SERVICE_NAME} call getRandom`)
 
         const response = await broker
-          .call('randomizer.getNum', ctx)
+          .call('randomizer.getNum', ctx.params)
           .then((res) => console.log(res))
           .catch((err) => console.error('Unable to get randomized number', err))
         return response
