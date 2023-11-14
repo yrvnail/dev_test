@@ -12,7 +12,11 @@ broker.createService({
       async handler(ctx) {
         console.log(`${SERVICE_NAME} call getRandom`)
 
-        // Тут нужно дописать код
+        const response = await broker
+          .call('randomizer.getNum', ctx)
+          .then((res) => console.log(res))
+          .catch((err) => console.error('Unable to get randomized number', err))
+        return response
       },
     },
   },
